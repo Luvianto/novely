@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:novely/widgets/dialogue_box.dart';
 
 class GameScreen extends StatelessWidget {
   const GameScreen({super.key});
@@ -27,19 +28,15 @@ class GameScreen extends StatelessWidget {
           // Dialogue box placeholder
           Align(
             alignment: Alignment.bottomCenter,
-            child: Container(
-              height: 150,
-              width: double.infinity,
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.black.withValues(alpha: 0.7),
-                borderRadius:
-                    const BorderRadius.vertical(top: Radius.circular(16)),
-              ),
-              child: const Text(
-                "Character: This is a dialogue placeholder...",
-                style: TextStyle(color: Colors.white, fontSize: 18),
-              ),
+            child: DialogueBox(
+              dialogues: [
+                "Aiko: Welcome to this world!",
+                "Aiko: I hope you enjoy your journey.",
+                "Aiko: Let's begin our adventure!"
+              ],
+              onDialogueComplete: () {
+                print("Dialogue finished!");
+              },
             ),
           ),
         ],
